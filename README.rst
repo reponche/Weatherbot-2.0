@@ -18,6 +18,7 @@ Commands
 After introducing this command bot will ask you City_name and then output you today weather.
 
 **For example**:
+
 | input: /weather
 | output: Please, tell me City_name.
 | input: Tokyo
@@ -28,6 +29,7 @@ After introducing this command bot will ask you City_name and then output you to
 After introducing this command bot will ask you City_name and then output you current week weather forecast.
 
 **For example**:
+
 | input: /forecast
 | output: Please, tell me City_name.
 | input: Tokyo
@@ -36,7 +38,7 @@ After introducing this command bot will ask you City_name and then output you cu
 | 22 Jul 2019
 | 61 F
 | Cloudy
-
+|
 | 23 Jul 2019
 | 59 F
 | Mostly Sunny
@@ -48,6 +50,7 @@ etc.
 After introducing this command bot will ask you City_name and then output you the weather forecast for nearest N days.
 
 **For example**:
+
 | input: /weather
 | output: Please, tell me City_name.
 | input: Tokyo, 2
@@ -56,7 +59,7 @@ After introducing this command bot will ask you City_name and then output you th
 | 22 Jul 2019
 | 61 F
 | Cloudy
-
+|
 | 23 Jul 2019
 | 59 F
 | Mostly Sunny
