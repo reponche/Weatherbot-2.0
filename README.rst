@@ -18,18 +18,18 @@ Commands
 After introducing this command bot will ask you City_name and then output you today weather.
 
 **For example**:
-|
+
 | input: /weather
 | output: Please, tell me City_name.
 | input: Tokyo
 | output: 35 F, Cloudy
-|
-| ``/forecast``
+
+``/forecast``
 
 After introducing this command bot will ask you City_name and then output you current week weather forecast.
 
 **For example**:
-|
+
 | input: /forecast
 | output: Please, tell me City_name.
 | input: Tokyo
@@ -50,7 +50,7 @@ etc.
 After introducing this command bot will ask you City_name and then output you the weather forecast for nearest N days.
 
 **For example**:
-|
+
 | input: /weather
 | output: Please, tell me City_name.
 | input: Tokyo, 2
