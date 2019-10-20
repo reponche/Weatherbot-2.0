@@ -13,50 +13,50 @@ After that you can use various commands to get information about the weather.
 Commands
 ========
 
-``/weather`` (``*``)
+``/weather``
 
 After introducing this command bot will ask you City_name and then output you today weather.
 
 **For example**:
-input: /weather
-output: Please, tell me City_name.
-input: Tokyo
-output: 35 F, Cloudy
+| input: /weather
+| output: Please, tell me City_name.
+| input: Tokyo
+| output: 35 F, Cloudy
 
-``/forecast`` (``*``)
+``/forecast``
 
 After introducing this command bot will ask you City_name and then output you current week weather forecast.
 
 **For example**:
-input: /forecast
-output: Please, tell me City_name.
-input: Tokyo
-output:
+| input: /forecast
+| output: Please, tell me City_name.
+| input: Tokyo
+| output:
 
-22 Jul 2019
-61 F
-Cloudy
+| 22 Jul 2019
+| 61 F
+| Cloudy
 
-23 Jul 2019
-59 F
-Mostly Sunny
+| 23 Jul 2019
+| 59 F
+| Mostly Sunny
 
 etc.
 
-``/amount_days`` (``*``)
+``/amount_days``
 
 After introducing this command bot will ask you City_name and then output you the weather forecast for nearest N days.
 
 **For example**:
-input: /weather
-output: Please, tell me City_name.
-input: Tokyo, 2
-output:
+| input: /weather
+| output: Please, tell me City_name.
+| input: Tokyo, 2
+| output:
 
-22 Jul 2019
-61 F
-Cloudy
+| 22 Jul 2019
+| 61 F
+| Cloudy
 
-23 Jul 2019
-59 F
-Mostly Sunny
+| 23 Jul 2019
+| 59 F
+| Mostly Sunny
