@@ -19,10 +19,10 @@ After introducing this command bot will ask you City_name and then output you to
 
 **For example**:
 
-| input: /weather
-| output: Please, tell me City_name.
-| input: Tokyo
-| output: 35 F, Cloudy
+| **input:** /weather
+| **output:** Please, tell me City_name.
+| **input:** Tokyo
+| **output:** 35 F, Cloudy
 
 ``/forecast``
 
@@ -30,10 +30,10 @@ After introducing this command bot will ask you City_name and then output you cu
 
 **For example**:
 
-| input: /forecast
-| output: Please, tell me City_name.
-| input: Tokyo
-| output:
+| **input:** /forecast
+| **output:** Please, tell me City_name.
+| **input:** Tokyo
+| **output:**
 |
 | 22 Jul 2019
 | 61 F
@@ -51,10 +51,10 @@ After introducing this command bot will ask you City_name and then output you th
 
 **For example**:
 
-| input: /weather
-| output: Please, tell me City_name.
-| input: Tokyo, 2
-| output:
+| **input:** /weather
+| **output:** Please, tell me City_name.
+| **input:** Tokyo, 2
+| **output:**
 |
 | 22 Jul 2019
 | 61 F
