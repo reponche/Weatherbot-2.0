@@ -1,13 +1,13 @@
 Description
 ===========
 
-This bot for Telegram can show you the weather.
+This telegram bot can show you the weather.
 
 How to use
 ==========
 
 You need to find bot on the Telegram.
-Write ``/start`` and bot will be launch.
+Write ``/start`` and bot will will be launched.
 After that you can use various commands to get information about the weather.
 
 Commands
@@ -15,9 +15,9 @@ Commands
 
 ``/weather``
 
-After introducing this command bot will ask you City_name and then output you today weather.
+After this command bot will ask you about city and then output you weather for today.
 
-**For example**:
+**Example**:
 
 | **input:** /weather
 | **output:** Please, tell me City_name.
@@ -26,9 +26,9 @@ After introducing this command bot will ask you City_name and then output you to
 
 ``/forecast``
 
-After introducing this command bot will ask you City_name and then output you current week weather forecast.
+After this command bot will ask you about city and then output you weather forecast for current week.
 
-**For example**:
+**Example**:
 
 | **input:** /forecast
 | **output:** Please, tell me City_name.
@@ -47,9 +47,9 @@ etc.
 
 ``/amount_days``
 
-After introducing this command bot will ask you City_name and then output you the weather forecast for nearest N days.
+After this command bot will ask you City_name and then output you weather forecast for nearest N days.
 
-**For example**:
+**Example**:
 
 | **input:** /weather
 | **output:** Please, tell me City_name.
