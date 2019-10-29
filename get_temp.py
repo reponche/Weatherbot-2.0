@@ -6,4 +6,4 @@ def get_weather():
     fahr = int(response["query"]["results"]["channel"]["item"]["condition"]["temp"])
     cels = ((fahr - 32) * 5/9)
     temp = cels + "°C"
-    return(temp)
+    return temp
