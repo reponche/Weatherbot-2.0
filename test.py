@@ -10,9 +10,9 @@ class TestGetTemp(unittest.TestCase):
         self.assertEqual(cels, 10.0)
 
     def test_add_C(self):
-        cels = 10
+        cels = "10.0"
         temp = add_C(cels)
-        self.assertEqual(temp, "10℃")
+        self.assertEqual(temp, "10.0C")
 
 
 if __name__ == "__main__" :
