@@ -9,13 +9,14 @@ import requests
 fahr = 50
 
 def conv_farh_to_cels(fahr):
-    cels = ((fahr - 32) * 5/9)
+    a = int((fahr - 32) * 5/9)
+    cels = round(a)
     return cels
 
 cels = str(conv_farh_to_cels(fahr))
 
 def add_C(cels):
-    temp = cels + "C"
+    temp = (cels + "°C").encode('utf-8')
     return temp
 
 print(add_C(cels))
