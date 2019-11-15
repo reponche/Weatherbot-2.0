@@ -1,8 +1,12 @@
 import unittest
-from get_temp import conv_farh_to_cels
-from get_temp import add_C
+from weatherbot.get_temp import conv_farh_to_cels, add_C, get_weather
+from weatherbot.tokens import OWN_TOKEN
 
 class TestGetTemp(unittest.TestCase):
+
+    def test_get_weather_type(self):
+        a = get_weather("Moscow", OWN_TOKEN)
+        self.assertIsInstance(a, int)
 
     def test_conv_farh_to_cels(self):
         fahr = 50
