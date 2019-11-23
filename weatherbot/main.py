@@ -1,7 +1,6 @@
 import requests
 import json
-from token_number import token
-from get_temp import get_weather
+from weatherbot.get_temp import get_weather
 
 URL = "https://api.telegram.org/bot" + token + "/"
 

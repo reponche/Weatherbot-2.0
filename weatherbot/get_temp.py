@@ -15,5 +15,3 @@ def conv_kelv_to_cels(temp):
 
 def add_C(cels):
     return (cels + "°C").encode('utf-8')
-
-print(conv_kelv_to_cels(70))
