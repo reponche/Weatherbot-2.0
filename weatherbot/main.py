@@ -1,8 +1,9 @@
 import requests
 import json
 from weatherbot.get_temp import get_weather
+from weatherbot.tokens import TELEGRAM_TOKEN
 
-URL = "https://api.telegram.org/bot" + token + "/"
+URL = "https://api.telegram.org/bot" + TELEGRAM_TOKEN + "/"
 
 def get_updates():
     # получаю обновления от сервера телеграм в виде словаря в формате json :
