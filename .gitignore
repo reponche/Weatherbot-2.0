@@ -1,4 +1,12 @@
 .DS_Store
 __pycache__
 weatherbot/tokens.py
+weatherbot/*.pyc
+weatherbot/__pycache__
+weatherbot/.DS_Store
+tests/__pycache__
+tests/*.pyc
+tests/.DS_Store
+
+
 
