@@ -1,16 +1,11 @@
 #!/usr/bin/env python3
 
-import os
 import sys
 # из модуля os.path, который расположен в модуле os достаю функции os.path.abspath() и os.path.dirname()
 # первая укажет нам абсолютный путь, вторая укажет имя директории
 from os.path import dirname, abspath
 curdir = abspath(dirname(dirname(__file__)))
 sys.path.insert(0,curdir)
-
-# в массив sys.path через функцию append прописываю путь к моим модулям до каталога
-sys.path.append("/Users/natale/Weatherbot-2.0")
-sys.path.append("/Users/natale/Weatherbot-2.0")
 
 import requests
 import json
