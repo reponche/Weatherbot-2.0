@@ -12,4 +12,4 @@ def conv_kelv_to_cels(temp):
     return round(cels)
 
 def add_C(cels):
-    return (str(cels) + "°C").encode('utf-8')
+    return (str(cels) + u"\xb0C")
