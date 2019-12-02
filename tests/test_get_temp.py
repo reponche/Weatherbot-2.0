@@ -1,6 +1,7 @@
 import unittest
 from weatherbot.tokens import OWN_TOKEN
 from weatherbot.get_temp import get_weather, conv_kelv_to_cels, add_C
+from weatherbot.tokens import OWN_TOKEN
 
 class TestGetTemp(unittest.TestCase):
 
