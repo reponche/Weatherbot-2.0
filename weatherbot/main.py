@@ -33,9 +33,8 @@ def parse_cli(args):
 
 def main():
     data = get_updates()
-    while update_id == get_update_id(data):
+    while True:
         print(get_message(data))
-        update_id = update_id + 1
 
 if __name__ == '__main__':
      main()
