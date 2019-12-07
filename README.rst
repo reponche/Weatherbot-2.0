@@ -51,7 +51,7 @@ After this command bot will ask you City_name and then output you weather foreca
 
 **Example**:
 
-| **input:** /weather
+| **input:** /amount_days
 | **output:** Please, tell me City_name.
 | **input:** Tokyo, 2
 | **output:**

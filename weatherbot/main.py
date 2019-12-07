@@ -9,8 +9,9 @@ import requests
 import json
 from weatherbot.get_temp import get_weather, conv_kelv_to_cels, add_C
 from weatherbot.tokens import OWN_TOKEN
+from weatherbot.telegram import get_updates, get_message, get_update_id, send_message
 
-def main():
+def parse_cli(args):
     try:
         input = int(sys.argv[1])
     except ValueError:
@@ -30,6 +31,11 @@ def main():
     else:
         print("Please, enter the city, not numbers. For example: Moscow")
 
+def main():
+    data = get_updates()
+    while update_id == get_update_id(data):
+        print(get_message(data))
+        update_id = update_id + 1
 
 if __name__ == '__main__':
      main()

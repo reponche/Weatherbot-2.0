@@ -17,7 +17,7 @@ class TestGetTemp(unittest.TestCase):
     def test_add_C(self):
         cels = "10"
         temp = add_C(cels)
-        self.assertEqual(temp, "10°C".encode('utf-8'))
+        self.assertEqual(temp, "10\xb0C")
 
 if __name__ == "__main__" :
     unittest.main()
