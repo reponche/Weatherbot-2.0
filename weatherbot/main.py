@@ -32,9 +32,10 @@ def parse_cli(args):
         print("Please, enter the city, not numbers. For example: Moscow")
 
 def main():
-    data = get_updates()
     while True:
-        print(get_message(data))
+        data = get_updates()
+        message_text = get_message(data)
+        print(message_text)
 
 if __name__ == '__main__':
      main()

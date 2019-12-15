@@ -1,4 +1,3 @@
-import telegram
 import requests
 from weatherbot.tokens import TELEGRAM_TOKEN
 
