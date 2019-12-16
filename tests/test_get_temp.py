@@ -19,5 +19,6 @@ class TestGetTemp(unittest.TestCase):
         temp = add_C(cels)
         self.assertEqual(temp, "10\xb0C")
 
+
 if __name__ == "__main__" :
     unittest.main()
