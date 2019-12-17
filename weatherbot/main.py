@@ -33,29 +33,26 @@ def parse_cli(args):
 
 
 def main():
-    data = get_updates()
-    update_id = get_update_id(data)
+    running = True
 
-    while True:
+    while running:
+
         data = get_updates()
-        update_id = get_update_id(data)
         chat_id = get_chat_id(data)
-        
-        try:
-            message_text = int(get_message(data))
+        message_text = get_message(data)
 
-        except ValueError:
+        try:
             weather = get_weather(message_text, OWN_TOKEN)
+
+        except KeyError:
+            send_message(chat_id, "I don't have information about this city. Are you sure this is a city?")
+            running = False
+
+        else:
             temp = conv_kelv_to_cels(weather)
             cels = add_C(temp)
             send_message(chat_id,cels)
-
-        else:
-            send_message(chat_id,"Please, enter the city, not numbers. For example: Moscow")
-
-data = get_updates()
-print(get_message(data))
-
+            running = False
 
 if __name__ == '__main__':
      main()
