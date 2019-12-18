@@ -49,9 +49,10 @@ def main():
             running = False
 
         else:
-            temp = conv_kelv_to_cels(response)
-            cels = add_C(temp)
-            send_message(chat_id, cels)
+            temp = get_temp(response)
+            cels = conv_kelv_to_cels(temp)
+            weather = add_C(cels)
+            send_message(chat_id, weather)
             running = False
 
 
