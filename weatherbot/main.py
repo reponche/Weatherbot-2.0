@@ -33,28 +33,26 @@ def parse_cli(args):
 
 
 def main():
-    running = True
-
-    while running:
+    i = 0
+    while True:
         data = get_updates()
         chat_id = get_chat_id(data)
+        update_id = get_update_id(data)
         message_text = get_message(data)
         response = get_weather(message_text)
+        temp = get_temp(response)
 
-#если город будет введен неверно, get_weather не найдет о нем данные на сервере OWM, в таком случае ф-ия не вернет словарь с данными, а get_temp не найдет погоду
-#соответственно выведет None
+        if update_id == i:
 
-        if get_temp(response) == None:
-            send_message(chat_id, "I don't have information about this city. Are you sure this is a city?")
-            running = False
+            if temp == None:
+                send_message(chat_id, "I don't have information about this city. Are you sure this is a city?")
 
-        else:
-            temp = get_temp(response)
-            cels = conv_kelv_to_cels(temp)
-            weather = add_C(cels)
-            send_message(chat_id, weather)
-            running = False
+            else:
+                cels = conv_kelv_to_cels(temp)
+                weather = add_C(cels)
+                send_message(chat_id, weather)
 
+        i = update_id + 1
 
 if __name__ == '__main__':
      main()
