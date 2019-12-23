@@ -50,7 +50,7 @@ def main():
             else:
                 cels = conv_kelv_to_cels(temp)
                 weather = add_C(cels)
-                send_message(chat_id, weather)
+                send_message(chat_id, "{} in {}".format(weather, message_text))
 
         i = update_id + 1
 
