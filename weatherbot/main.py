@@ -31,7 +31,6 @@ def parse_cli(args):
     else:
         print("Please, enter the city, not numbers. For example: Moscow")
 
-
 def main():
     i = 0
     while True:
