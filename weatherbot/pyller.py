@@ -1,3 +1,5 @@
+from collections import deque
+
 def check_add(dict, id):
     return id < dict["id"]
 
@@ -9,5 +11,6 @@ def get_new(dict, id):
             pass
 
 def should_add(dict, id):
-    queue = []
-    return queue.append(get_new(dict, id))
+    q = deque()
+    q.append(get_new(dict, id))
+    return q
