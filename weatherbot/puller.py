@@ -1,16 +1,9 @@
-from collections import deque
+def should_add(updates, update_id):
+    return update_id < updates["update_id"]
 
-def check_add(dict, id):
-    return id < dict["id"]
-
-def get_new(dict, id):
-    for item in dict:
-        result = check_add(item, id)
-        if result:
-            print(item)
-            pass
-
-def should_add(dict, id):
-    q = deque()
-    q.append(get_new(dict, id))
-    return q
+def get_new(updates, update_id):
+    buffer = []
+    for item in updates:
+        if should_add(item, update_id):
+            buffer.append(item)
+    return buffer

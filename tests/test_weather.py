@@ -2,7 +2,7 @@ import unittest
 
 from weatherbot.weather import get_weather, conv_kelv_to_cels, add_C
 
-class TestGetTemp(unittest.TestCase):
+class TestWeather(unittest.TestCase):
 
     def test_get_weather_type(self):
         a = get_weather("Moscow")

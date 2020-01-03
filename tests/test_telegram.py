@@ -2,7 +2,7 @@ import unittest
 
 from weatherbot.telegram import get_updates, get_message
 
-class TestGetMessage(unittest.TestCase):
+class TestTelegram(unittest.TestCase):
 
     def test_get_message(self):
         data = get_updates()
