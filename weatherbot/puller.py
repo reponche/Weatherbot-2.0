@@ -1,9 +1,9 @@
-def should_add(updates, id):
-    return id < updates["id"]
+def should_add(updates, update_id):
+    return update_id < updates["update_id"]
 
-def get_new(updates, id):
+def get_new(updates, update_id):
     buffer = []
     for item in updates:
-        if should_add(item, id):
+        if should_add(item, update_id):
             buffer.append(item)
     return buffer
