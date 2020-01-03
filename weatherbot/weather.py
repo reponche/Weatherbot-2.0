@@ -1,16 +1,16 @@
 import requests
 
-from weatherbot.tokens import OWN_TOKEN
+from weatherbot.tokens import OWM_TOKEN
 
 OWM_URL = "https://api.openweathermap.org/data/2.5/weather?q={},RU&appid={}"
 
 def get_weather(city):
-    url = OWM_URL.format(city, OWN_TOKEN)
+    url = OWM_URL.format(city, OWM_TOKEN)
     response = requests.get(url).json()
     return response
 
 def get_temp(response):
-    """Get a temperature from OWN reponse, or None if response is 'city wasn't found'"""
+    """Get a temperature from OWM reponse, or None if response is 'city wasn't found'"""
     try:
         temp = response["main"]["temp"]
     except KeyError:

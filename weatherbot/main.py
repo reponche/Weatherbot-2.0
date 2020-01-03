@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 
+# Hack to add weatherbot to sys.path for proper imports
 import sys
 from os.path import dirname, abspath
 curdir = abspath(dirname(dirname(__file__)))
 sys.path.insert(0,curdir)
 
+# Actual imports
 import requests
 import json
 from weatherbot.weather import get_weather, conv_kelv_to_cels, add_C, get_temp
-from weatherbot.tokens import OWN_TOKEN
+from weatherbot.tokens import OWM_TOKEN
 from weatherbot.telegram import get_updates, get_message, get_update_id, send_message, get_chat_id
 
 def parse_cli(args):
@@ -17,7 +19,7 @@ def parse_cli(args):
     except ValueError:
 
         if len(sys.argv) == 2:
-            weather = get_weather(sys.argv[1], OWN_TOKEN)
+            weather = get_weather(sys.argv[1], OWM_TOKEN)
             temp = conv_kelv_to_cels(weather)
             cels = add_C(temp)
             print(cels)
