@@ -1,12 +1,11 @@
 import unittest
-from weatherbot.tokens import OWN_TOKEN
-from weatherbot.get_temp import get_weather, conv_kelv_to_cels, add_C
-from weatherbot.tokens import OWN_TOKEN
+
+from weatherbot.weather import get_weather, conv_kelv_to_cels, add_C
 
 class TestGetTemp(unittest.TestCase):
 
     def test_get_weather_type(self):
-        a = get_weather("Moscow", OWN_TOKEN)
+        a = get_weather("Moscow")
         self.assertIsInstance(a, int)
 
     def test_conv_kelv_to_cels(self):
