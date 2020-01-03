@@ -7,7 +7,7 @@ sys.path.insert(0,curdir)
 
 import requests
 import json
-from weatherbot.get_temp import get_weather, conv_kelv_to_cels, add_C, get_temp
+from weatherbot.weather import get_weather, conv_kelv_to_cels, add_C, get_temp
 from weatherbot.tokens import OWN_TOKEN
 from weatherbot.telegram import get_updates, get_message, get_update_id, send_message, get_chat_id
 
