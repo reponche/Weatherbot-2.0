@@ -1,11 +1,10 @@
 import unittest
-from weatherbot.telegram import get_updates, get_message, get_update_id, send_message
+from weatherbot.telegram import get_updates, get_message
 
-class TestGetTemp(unittest.TestCase):
-
-data = get_updates()
+class TestGetMessage(unittest.TestCase):
 
     def test_get_message(self):
+        data = get_updates()
         message = get_message(data)
         self.assertIsInstance(message, str)
 
