@@ -1,4 +1,5 @@
 import requests
+
 from weatherbot.tokens import TELEGRAM_TOKEN
 
 URL = "https://api.telegram.org/bot" + TELEGRAM_TOKEN + "/"

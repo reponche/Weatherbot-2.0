@@ -1,4 +1,5 @@
 import unittest
+
 from weatherbot.telegram import get_updates, get_message
 
 class TestGetMessage(unittest.TestCase):
