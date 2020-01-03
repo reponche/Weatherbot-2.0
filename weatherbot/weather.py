@@ -12,11 +12,9 @@ def get_weather(city):
 def get_temp(response):
     """Get a temperature from OWM reponse, or None if response is 'city wasn't found'"""
     try:
-        temp = response["main"]["temp"]
+        return int(response["main"]["temp"])
     except KeyError:
         return None
-    else:
-        return int(temp)
 
 def conv_kelv_to_cels(temp):
     return round(int(temp - 273.15))
