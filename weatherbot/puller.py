@@ -7,3 +7,7 @@ def get_new(updates, update_id):
         if should_add(item, update_id):
             buffer.append(item)
     return buffer
+
+def add_queue(queue, buffer):
+    queue.append(buffer)
+    return queue
