@@ -11,4 +11,4 @@ def get_new(updates, update_id):
 def add_in_queue(queue, elems_list):
     for item in elems_list:
         queue.append(item)
-        pass
+    return queue
