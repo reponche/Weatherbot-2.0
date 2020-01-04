@@ -25,8 +25,8 @@ class TestPuller(unittest.TestCase):
     def test_add_queue(self):
         updates = [{"message": "Moscow","update_id": 5}, {"message": "/start","update_id": 1},{"message": "/weather","update_id": 3}, {"message": "London, UK","update_id": 2},{"message": "message","update_id": 4}]
         queue = deque()
-        buffer = get_new(updates, 4)
-        self.assertEqual(add_queue(queue, buffer), deque([{"message": "Moscow","update_id": 5}]))
+        elems_list = get_new(updates, 4)
+        self.assertEqual(add_queue(queue, elems_list), deque([{"message": "Moscow","update_id": 5}]))
 
 if __name__ == "__main__" :
     unittest.main()
