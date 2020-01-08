@@ -10,15 +10,18 @@ def get_new(updates, update_id):
             buffer.append(item)
     return buffer
 
+"""In class Puller we create deque() object. 
+We need state of deque() and last update_id of deque()."""
+
 class Puller:
     def __init__(self):
         self.queue = deque()
         self.update_id = 0
 
     def pull(self, updates):
-        date = get_new(updates, self.update_id)
-        for elems in date:
-            self.queue.append()
+        data = get_new(updates, self.update_id)
+        for elem in data:
+            self.queue.append(elem)
             self.update_id = elem["update_id"]
 
     def get_elems(self):
@@ -30,6 +33,3 @@ class Puller:
     def get_state(self):
         return self.queue
 
-a = Puller()
-print(a.get_elems())
-print(a.get_state())

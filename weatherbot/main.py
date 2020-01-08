@@ -26,7 +26,7 @@ def parse_cli(args):
             print(cels)
 
         if len(sys.argv) > 2:
-            print("Please, enter the one parametr. For example: Moscow")
+            print("Please, enter the one parameter. For example: Moscow")
 
     except IndexError:
         print("Please, enter the city")
