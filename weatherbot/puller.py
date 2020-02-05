@@ -1,7 +1,9 @@
 from collections import deque
 
+
 def should_add(updates, update_id):
     return update_id < updates["update_id"]
+
 
 def get_new(updates, update_id):
     buffer = []
@@ -9,6 +11,7 @@ def get_new(updates, update_id):
         if should_add(item, update_id):
             buffer.append(item)
     return buffer
+
 
 class Puller:
     """In class Puller we create deque() object.
@@ -27,10 +30,6 @@ class Puller:
     def get_elems(self):
         buffer = []
         while len(self.queue) > 0:
-            buffer.append(self.queue.pop())
+            first = self.queue.popleft()
+            buffer.append(first)
         return buffer
-
-    def get_state(self):
-        return self.queue
-
-
