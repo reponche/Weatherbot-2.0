@@ -1,7 +1,7 @@
 import unittest
-from collections import deque
+import tempfile
 
-from weatherbot.puller import should_add, get_new, Puller
+from weatherbot.puller import *
 
 class TestPuller(unittest.TestCase):
 
@@ -29,6 +29,25 @@ class TestPuller(unittest.TestCase):
         queue = puller.get_elems()
         expectation = [{"message": "/start","update_id": 1}, {"message": "London, UK","update_id": 2}, {"message": "/weather","update_id": 3}]
         self.assertEqual(queue, expectation)
+
+    def test_get_state_nonexistent(self):
+        state_file = tempfile.mktemp("weather-bot")
+        state = get_state(state_file)
+        expectation = 0
+        self.assertEqual(state, expectation)
+
+
+    def test_get_state_existent(self):
+        (state_fd, state_file) = tempfile.mkstemp("weather-bot", text=True)
+        state_handle = open(state_fd, 'w')
+        state_handle.write("42")
+        state_handle.close()
+
+        state = get_state(state_file)
+        expectation = 42
+        self.assertEqual(state, expectation)
+
+
 
 
 if __name__ == "__main__":

@@ -6,13 +6,13 @@ from os.path import dirname, abspath
 curdir = abspath(dirname(dirname(__file__)))
 sys.path.insert(0,curdir)
 
-# Actual imports
-import requests
-import json
+import time
 
 from weatherbot.weather import get_weather, conv_kelv_to_cels, add_C, get_temp
 from weatherbot.tokens import OWM_TOKEN
-from weatherbot.telegram import get_updates, get_message, get_update_id, send_message, get_chat_id
+from weatherbot.telegram import get_updates, send_message
+from weatherbot.puller import Puller
+
 
 def parse_cli(args):
     try:
@@ -34,27 +34,36 @@ def parse_cli(args):
     else:
         print("Please, enter the city, not numbers. For example: Moscow")
 
+def get_response(message):
+    chat_id = message["message"]["chat"]["id"]
+    message_text = message["message"]["text"]
+    response = get_weather(message_text)
+    temp = get_temp(response)
+    return chat_id, temp, message_text
+
+
 def main():
-    i = 0
+    puller = Puller("./puller_state")
     while True:
-        data = get_updates()
-        chat_id = get_chat_id(data)
-        update_id = get_update_id(data)
-        message_text = get_message(data)
-        response = get_weather(message_text)
-        temp = get_temp(response)
+        time.sleep(5)
+        updates = get_updates()
+        if updates['ok'] != True:
+            print(f"Something happened, too bad. Response was: {updates}")
+            sys.exit(1)
+        results = updates['result']
+        puller.pull(results)
+        latest = puller.get_elems()
 
-        if update_id == i:
+        for message in latest:
+            (chat_id, temperature, city) = get_response(message)
 
-            if temp == None:
-                send_message(chat_id, "I don't have information about this city. Are you sure this is a city?")
-
+            if temperature is None:
+                send_message(chat_id, f"I don't have information about this city. Are you sure {city} is a city?")
             else:
-                cels = conv_kelv_to_cels(temp)
+                cels = conv_kelv_to_cels(temperature)
                 weather = add_C(cels)
-                send_message(chat_id, "{} in {}".format(weather, message_text))
+                send_message(chat_id, f"{weather} in {city}")
 
-        i = update_id + 1
 
 if __name__ == '__main__':
      main()
