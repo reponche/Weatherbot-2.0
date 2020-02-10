@@ -2,14 +2,10 @@ from collections import deque
 import os.path
 
 
-def should_add(updates, update_id):
-    return update_id < updates["update_id"]
-
-
 def get_new(updates, update_id):
     buffer = []
     for item in updates:
-        if should_add(item, update_id):
+        if update_id < item['update_id']:
             buffer.append(item)
     return buffer
 
@@ -25,30 +21,20 @@ def get_state(state_file):
             return state_str
 
 
-def write_state(state_file, state):
-    if state_file is not None:
-        with open(state_file, 'w') as f:
-            f.write(str(state))
+class State:
 
-
-class Puller:
-    """In class Puller we create deque() object.
-    We need state of deque() and last update_id of deque()."""
-
-    def __init__(self, state_file=None):
+    def __init__(self, state_file):
         self.queue = deque()
         self.state_file = state_file
-        if state_file is None:
-            self.update_id = 0
-        else:
-            self.update_id = get_state(state_file)
+        self.update_id = get_state(state_file)
 
-    def pull(self, updates):
+    def filter(self, updates):
         data = get_new(updates, self.update_id)
         for elem in data:
             self.queue.append(elem)
             update_id = elem["update_id"]
-            write_state(self.state_file, update_id)
+            with open(self.state_file, 'w') as f:
+                f.write(str(update_id))
             self.update_id = update_id
 
     def get_elems(self):

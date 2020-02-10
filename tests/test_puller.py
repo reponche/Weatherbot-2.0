@@ -1,15 +1,9 @@
 import unittest
 import tempfile
 
-from weatherbot.puller import *
+from weatherbot.state import *
 
 class TestPuller(unittest.TestCase):
-
-    def test_should_add_true(self):
-        self.assertEqual(should_add({"message": "Foo", "update_id": 3}, 1), True)
-
-    def test_should_add_false(self):
-        self.assertEqual(should_add({"message": "Foo", "update_id": 3}, 4), False)
 
     def test_get_new(self):
         updates = [{"message": "/start","update_id": 1},{"message": "London, UK","update_id": 2},{"message": "/weather","update_id": 3},{"message": "message","update_id": 4},{"message": "Moscow","update_id": 5}]
@@ -24,8 +18,9 @@ class TestPuller(unittest.TestCase):
 
     def test_get_elems(self):
         updates = [{"message": "/start","update_id": 1},{"message": "London, UK","update_id": 2},{"message": "/weather","update_id": 3}]
-        puller = Puller()
-        puller.pull(updates)
+        state_file = tempfile.mktemp("weather-bot")
+        puller = State(state_file)
+        puller.filter(updates)
         queue = puller.get_elems()
         expectation = [{"message": "/start","update_id": 1}, {"message": "London, UK","update_id": 2}, {"message": "/weather","update_id": 3}]
         self.assertEqual(queue, expectation)
@@ -36,7 +31,6 @@ class TestPuller(unittest.TestCase):
         expectation = 0
         self.assertEqual(state, expectation)
 
-
     def test_get_state_existent(self):
         (state_fd, state_file) = tempfile.mkstemp("weather-bot", text=True)
         state_handle = open(state_fd, 'w')
@@ -46,8 +40,6 @@ class TestPuller(unittest.TestCase):
         state = get_state(state_file)
         expectation = 42
         self.assertEqual(state, expectation)
-
-
 
 
 if __name__ == "__main__":
