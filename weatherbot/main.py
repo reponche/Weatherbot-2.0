@@ -23,7 +23,7 @@ def main():
     puller = State("./puller_state")
     while True:
         updates = get_updates()
-        if updates['ok'] is True:
+        if updates['result'] == [] or updates["ok"] is False:
             print(f"Something happened, too bad. Response was: {updates}")
             sys.exit(1)
         results = updates['result']
