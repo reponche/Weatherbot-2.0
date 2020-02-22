@@ -7,6 +7,10 @@ weatherbot/.DS_Store
 tests/__pycache__
 tests/*.pyc
 tests/.DS_Store
+.idea
+puller_state
+shell.ix
+owm_results.json
 
 
 

@@ -10,7 +10,7 @@ def get_weather(city):
     return response
 
 def get_temp(response):
-    """Get a temperature from OWM reponse, or None if response is 'city wasn't found'"""
+    """Get a temperature from OWM response, or None if response is 'city wasn't found'"""
     try:
         return int(response["main"]["temp"])
     except KeyError:

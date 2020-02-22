@@ -6,7 +6,7 @@ class TestWeather(unittest.TestCase):
 
     def test_get_weather_type(self):
         a = get_weather("Moscow")
-        self.assertIsInstance(a, int)
+        self.assertIsInstance(a, dict)
 
     def test_conv_kelv_to_cels(self):
         kelv = 70
