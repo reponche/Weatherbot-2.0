@@ -18,9 +18,6 @@ def main():
     owm_results = []
     if not os.path.exists("owm_results.json"):
         file = open("owm_results.json", 'x')
-    else:
-        file = open("owm_results.json", 'a')
-
 
     while True:
         updates = get_updates()
@@ -38,14 +35,15 @@ def main():
             temp = get_temp(response)
 
             if temp is None:
-                send_message(chat_id, f"I don't have information about this city. Are you sure {city} is a city?")
+                send_message(chat_id, f"I don't have information about this city. Are you sure {message_text} is a city?")
             else:
                 cels = conv_kelv_to_cels(temp)
                 weather = add_C(cels)
                 send_message(chat_id, f"{weather} in {message_text}")
                 owm_results.append(response)
-                file.write(json.dumps(owm_results, indent=4))
-                file.close()
+                with open("owm_results.json", 'a') as file:
+                    file.write(json.dumps(owm_results, indent=4))
+
 
 
 if __name__ == '__main__':
