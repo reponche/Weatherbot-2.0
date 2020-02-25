@@ -15,11 +15,12 @@ from weatherbot.state import State
 
 def main():
     puller = State("./puller_state")
-    owm_results = []
-    if not os.path.exists("owm_results.json"):
-        file = open("owm_results.json", 'x')
 
     while True:
+        if not os.path.exists("owm_results.json"):
+            file = open("owm_results.json", 'x')
+        else:
+            file = open("owm_results.json", 'a')
         updates = get_updates()
         if updates["ok"] is False:
             print(f"Something happened, too bad. Response was: {updates}")
@@ -40,10 +41,8 @@ def main():
                 cels = conv_kelv_to_cels(temp)
                 weather = add_C(cels)
                 send_message(chat_id, f"{weather} in {message_text}")
-                owm_results.append(response)
-                with open("owm_results.json", 'a') as file:
-                    file.write(json.dumps(owm_results, indent=4))
-
+                file.write(json.dumps(response, indent=4))
+                file.close()
 
 
 if __name__ == '__main__':
